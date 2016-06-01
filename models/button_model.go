@@ -18,13 +18,14 @@ type Button struct {
 	Name 		string                  `json:"name"`
 	Pressed		bool                	`json:"pressed"`
 	Gpio		*gpio.ButtonDriver	`json:"gpio"`
-	Action	 	func()
+	//Action	 	func()
 }
 
 func NewButton(r *raspi.RaspiAdaptor) *Button {
 	b := new(Button)
 	b.Name = "Test"
 	b.Gpio = gpio.NewButtonDriver(r, "button", "11")
+	fmt.Println(b)
 	return b
 }
 
@@ -41,7 +42,14 @@ func (b *Button) Listen() {
 }
 
 func (b *Button) MarshalJson() []byte {
-	json, _ := json.Marshal(b)
+	json, err := json.Marshal(b)
+	//json, _ := json.MarshalIndent(b, "", "   ")
+
+	if err != nil {
+		fmt.Println(err)
+		return json
+	}
+
 	return json
 }
 

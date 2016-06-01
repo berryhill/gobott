@@ -15,25 +15,33 @@ var owork func()
 
 func init() {
 	owork = func() {
-		mqttAdaptor.On("data", func(data []byte) {
+
+		mqttAdaptor.On("web_to_bot", func(data []byte) {
 			d := json.Unmarshal(data, models.Button{})
 			fmt.Println(d)
 		})
 
+
 		gobot.Every(1*time.Second, func() {
 			json := Buttons[0].MarshalJson()
+
+			//bm := models.NewBaseModel()
+			//json, _ := json.Marshal(bm)
+
 			SendMessage(json)
+			fmt.Print("Send Message")
+			fmt.Println(json)
 		})
 	}
 }
 
 func NewOperator() *gobot.Robot {
-	mqttAdaptor = mqtt.NewMqttAdaptor("server", "tcp://test.mosquitto.org:1883", "pinger")
+	mqttAdaptor = mqtt.NewMqttAdaptor("server", "tcp://test.mosquitto.org:1883", "operator")
 	robot := gobot.NewRobot("mqttBot", []gobot.Connection{mqttAdaptor}, owork, )
 
 	return robot
 }
 
 func SendMessage(b []byte) {
-	mqttAdaptor.Publish("data", b)
+	mqttAdaptor.Publish("bot_to_web", b)
 }

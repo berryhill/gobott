@@ -2,12 +2,9 @@ package bot
 
 import (
 	"fmt"
-	//"time"
 
 	"github.com/hybridgroup/gobot"
 	"github.com/hybridgroup/gobot/platforms/gpio"
-	//"github.com/hybridgroup/gobot/platforms/raspi"
-	//"github.com/hybridgroup/gobot/platforms/mqtt"
 
 	"github.com/gobott/models"
 	"github.com/hybridgroup/gobot/platforms/raspi"

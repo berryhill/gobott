@@ -20,7 +20,7 @@ func init() {
 			fmt.Println(d)
 		})
 
-		gobot.Every(5*time.Second, func() {
+		gobot.Every(1*time.Second, func() {
 			json := Buttons[0].MarshalJson()
 			SendMessage(json)
 		})
@@ -29,11 +29,7 @@ func init() {
 
 func NewOperator() *gobot.Robot {
 	mqttAdaptor = mqtt.NewMqttAdaptor("server", "tcp://test.mosquitto.org:1883", "pinger")
-
-	robot := gobot.NewRobot("mqttBot",
-		[]gobot.Connection{mqttAdaptor},
-		owork,
-	)
+	robot := gobot.NewRobot("mqttBot", []gobot.Connection{mqttAdaptor}, owork, )
 
 	return robot
 }

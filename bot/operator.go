@@ -24,13 +24,7 @@ func init() {
 
 		gobot.Every(1*time.Second, func() {
 			json := Buttons[0].MarshalJson()
-
-			//bm := models.NewBaseModel()
-			//json, _ := json.Marshal(bm)
-
 			SendMessage(json)
-			fmt.Print("Send Message")
-			fmt.Println(json)
 		})
 	}
 }
@@ -44,4 +38,5 @@ func NewOperator() *gobot.Robot {
 
 func SendMessage(b []byte) {
 	mqttAdaptor.Publish("bot_to_web", b)
+	fmt.Println("Sending Button Json")
 }

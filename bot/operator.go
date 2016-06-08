@@ -15,12 +15,10 @@ var owork func()
 
 func init() {
 	owork = func() {
-
 		mqttAdaptor.On("web_to_bot", func(data []byte) {
 			d := json.Unmarshal(data, models.Button{})
 			fmt.Println(d)
 		})
-
 
 		gobot.Every(1*time.Second, func() {
 			json := Buttons[0].MarshalJson()

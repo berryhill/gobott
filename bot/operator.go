@@ -4,10 +4,13 @@ import(
 	"fmt"
 	"time"
 	"encoding/json"
+	"log"
 
 	"github.com/hybridgroup/gobot/platforms/mqtt"
 	"github.com/hybridgroup/gobot"
-	"github.com/gobott/models"
+	m "github.com/gobott/models"
+
+	"github.com/gobott-web/models"
 )
 
 var mqttAdaptor *mqtt.MqttAdaptor
@@ -15,14 +18,21 @@ var owork func()
 
 func init() {
 	owork = func() {
-		mqttAdaptor.On("web_to_bot", func(data []byte) {
-			d := json.Unmarshal(data, models.Button{})
+		mqttAdaptor.On("web_to_bot_report", func(data []byte) {
+			d := json.Unmarshal(data, m.Button{})
 			fmt.Println(d)
 		})
 
 		gobot.Every(1*time.Second, func() {
-			json := Buttons[0].MarshalJson()
-			SendMessage(json)
+			testReport := models.NewReport()
+
+			json, err := testReport.MarshalJson()
+
+			if err != nil {
+				log.Fatal(err)
+			} else {
+				SendMessage("bot_to_web_report", json)
+			}
 		})
 	}
 }
@@ -34,7 +44,7 @@ func NewOperator() *gobot.Robot {
 	return robot
 }
 
-func SendMessage(b []byte) {
-	mqttAdaptor.Publish("bot_to_web", b)
-	fmt.Println("Sending Button Json")
+func SendMessage(topic string, b []byte) {
+	mqttAdaptor.Publish(topic, b)
+	fmt.Println("Sending Json")
 }

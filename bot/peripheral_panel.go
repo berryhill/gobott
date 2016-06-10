@@ -12,7 +12,7 @@ var ppwork func()
 
 func init() {
 	ppwork = func() {
-		Buttons[0].Listen()
+		// Buttons[0].Listen
 	}
 }
 

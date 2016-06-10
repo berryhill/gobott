@@ -24,7 +24,7 @@ func init() {
 		})
 
 		gobot.Every(1*time.Second, func() {
-			testReport := models.NewReport()
+			testReport := models.NewReport(MACHINE)
 
 			json, err := testReport.MarshalJson()
 

@@ -8,7 +8,11 @@ var MACHINE *models.Machine
 
 func init() {
 	MACHINE = models.NewMachine("Test Machine")
+	var sensor models.Sensor
 
-	//MACHINE.AddSensor(models.NewAnalogSensor("PH Sensor"))
-	//MACHINE.AddSensor(models.NewAnalogSensor("PPM Sensor"))
+	sensor = models.NewAnalogSensor("PH Sensor")
+	MACHINE.AddSensor(&sensor)
+
+	sensor = models.NewAnalogSensor("PPM Sensor")
+	MACHINE.AddSensor(&sensor)
 }

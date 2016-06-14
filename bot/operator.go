@@ -23,7 +23,7 @@ func init() {
 			fmt.Println(d)
 		})
 
-		gobot.Every(1*time.Second, func() {
+		gobot.Every(5*time.Second, func() {
 			testReport := models.NewReport(MACHINE)
 
 			json, err := testReport.MarshalJson()

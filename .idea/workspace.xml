@@ -4,7 +4,6 @@
     <list default="true" id="83c64ff5-8c2c-4661-b5a6-fb7a642a3f95" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bot/machine.go" afterPath="$PROJECT_DIR$/bot/machine.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bot/operator.go" afterPath="$PROJECT_DIR$/bot/operator.go" />
     </list>
     <ignored path="gobott.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -97,8 +96,8 @@
       <file leaf-file-name="machine.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot/machine.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+            <state relative-caret-position="315">
+              <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
               <folding>
                 <element signature="e#13#55#0" expanded="true" />
               </folding>
@@ -710,12 +709,12 @@
       <workItem from="1465482761939" duration="25000" />
       <workItem from="1465504826364" duration="350000" />
       <workItem from="1465594679264" duration="4021000" />
-      <workItem from="1465937574432" duration="2461000" />
+      <workItem from="1465937574432" duration="4747000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58885000" />
+    <option name="totallyTimeSpent" value="61171000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="23" width="1060" height="1053" extended-state="0" />
@@ -1194,8 +1193,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bot/machine.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+        <state relative-caret-position="315">
+          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
           <folding>
             <element signature="e#13#55#0" expanded="true" />
           </folding>

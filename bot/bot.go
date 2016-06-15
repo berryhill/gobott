@@ -14,16 +14,24 @@ type Bot struct {
 	raspiAdaptor		*raspi.RaspiAdaptor
 }
 
+var HeartBeat *gobot.Gobot
+var Gbot *gobot.Gobot
+var Operator *gobot.Robot
+var BotHandler *gobot.Robot
+
 func NewBot() {
 	bot := new(Bot)
-	gbot := gobot.NewGobot()
+	Gbot = gobot.NewGobot()
 
 	r, buttons, leds := bot.initMicrocontroller()
 	fmt.Println(leds)
 
-	gbot.AddRobot(NewOperator())
-	gbot.AddRobot(NewPeripheralPanel(r, buttons))
-	gbot.Start()
+	Operator = NewOperator()
+
+	Gbot.AddRobot(Operator)
+	Gbot.AddRobot(NewPeripheralPanel(r, buttons))
+
+	Gbot.Start()
 }
 
 func (b *Bot) initMicrocontroller() (*raspi.RaspiAdaptor, []*models.Button, *gpio.LedDriver) {
@@ -39,5 +47,5 @@ func (b *Bot) initMicrocontroller() (*raspi.RaspiAdaptor, []*models.Button, *gpi
 
 func initSensors (r *raspi.RaspiAdaptor) {
 	//return models.NewThermometer(r)
-	// TODO implement
+	//TODO implement
 }

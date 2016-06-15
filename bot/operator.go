@@ -3,38 +3,49 @@ package bot
 import(
 	"fmt"
 	"time"
-	"encoding/json"
 	"log"
 
 	"github.com/hybridgroup/gobot/platforms/mqtt"
 	"github.com/hybridgroup/gobot"
-	m "github.com/gobott/models"
 
 	"github.com/gobott-web/models"
 )
 
 var mqttAdaptor *mqtt.MqttAdaptor
 var owork func()
+var Timer int
+var On bool
 
 func init() {
+	On = true
+
 	owork = func() {
-		mqttAdaptor.On("web_to_bot_report", func(data []byte) {
-			d := json.Unmarshal(data, m.Button{})
-			fmt.Println(d)
-		})
+		gobot.Every(5 * time.Second, func() {
+			if On == true {
+				testReport := models.NewReport(MACHINE)
 
-		gobot.Every(5*time.Second, func() {
-			testReport := models.NewReport(MACHINE)
+				json, err := testReport.MarshalJson()
 
-			json, err := testReport.MarshalJson()
+				if err != nil {
+					log.Fatal(err)
+				}
 
-			if err != nil {
-				log.Fatal(err)
-			} else {
-				SendMessage("bot_to_web_report", json)
+				sendMessage("bot_to_web", json)
 			}
 		})
+
+		mqttAdaptor.On("web_to_bot", func(data []byte) {
+			handleMessage(data)
+		})
 	}
+}
+
+func ResumeOutboundReport() {
+	On = true
+}
+
+func HaltOutboundReport() {
+	On = false
 }
 
 func NewOperator() *gobot.Robot {
@@ -44,7 +55,25 @@ func NewOperator() *gobot.Robot {
 	return robot
 }
 
-func SendMessage(topic string, b []byte) {
+func handleMessage(data []byte) {
+	fmt.Println("Handling Message")
+
+	if string(data) == "start_bot" {
+		ResumeOutboundReport()
+
+		fmt.Println("Starting Bot")
+	} else if string(data) == "stop_bot" {
+		HaltOutboundReport()
+
+		fmt.Println("Stopping Bot")
+	} else {
+		//d := json.Unmarshal(data, models.Button{})
+
+		fmt.Println(data)
+	}
+}
+
+func sendMessage(topic string, b []byte) {
 	mqttAdaptor.Publish(topic, b)
 	fmt.Println("Sending Json")
 }

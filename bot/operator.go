@@ -23,19 +23,24 @@ func init() {
 	On = true
 	Timer = new(models.Timer)
 	Timer.Seconds = 5
+	Counter = 1
 
 	owork = func() {
-		gobot.Every(time.Duration(Timer.Seconds) * time.Second, func() {
+		gobot.Every(1 * time.Second, func() {
 			if On == true {
-				testReport := models.NewReport(MACHINE)
+				if Counter >= Timer.Seconds {
+					testReport := models.NewReport(MACHINE)
 
-				json, err := testReport.MarshalJson()
+					json, err := testReport.MarshalJson()
 
-				if err != nil {
-					log.Fatal(err)
+					if err != nil {
+						log.Fatal(err)
+					}
+
+					sendMessage("bot_to_web", json)
+					Counter = 0
 				}
-
-				sendMessage("bot_to_web", json)
+				Counter += 1
 			}
 		})
 
@@ -74,7 +79,9 @@ func handleMessage(data []byte) error {
 		HaltOutboundReport()
 
 		fmt.Println("Stopping Bot")
-	} else if dataStrs[0] == "" {
+	} else if dataStrs[0] == "timer" {
+		fmt.Println("Timer" + string(Counter))
+
 		/*
 		t := new(models.Timer)
 

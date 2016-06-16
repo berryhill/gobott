@@ -9,18 +9,23 @@ import(
 	"github.com/hybridgroup/gobot"
 
 	"github.com/gobott-web/models"
+	"strings"
+	"strconv"
 )
 
 var mqttAdaptor *mqtt.MqttAdaptor
 var owork func()
-var Timer int
 var On bool
+var Timer *models.Timer
+var Counter int
 
 func init() {
 	On = true
+	Timer = new(models.Timer)
+	Timer.Seconds = 5
 
 	owork = func() {
-		gobot.Every(5 * time.Second, func() {
+		gobot.Every(time.Duration(Timer.Seconds) * time.Second, func() {
 			if On == true {
 				testReport := models.NewReport(MACHINE)
 
@@ -55,22 +60,39 @@ func NewOperator() *gobot.Robot {
 	return robot
 }
 
-func handleMessage(data []byte) {
+func handleMessage(data []byte) error {
 	fmt.Println("Handling Message")
+	fmt.Println(data)
 
-	if string(data) == "start_bot" {
+	dataStrs := strings.Split(string(data), " ")
+
+	if dataStrs[0] == "start_bot" {
 		ResumeOutboundReport()
 
 		fmt.Println("Starting Bot")
-	} else if string(data) == "stop_bot" {
+	} else if dataStrs[0] == "stop_bot" {
 		HaltOutboundReport()
 
 		fmt.Println("Stopping Bot")
-	} else {
-		//d := json.Unmarshal(data, models.Button{})
+	} else if dataStrs[0] == "" {
+		/*
+		t := new(models.Timer)
 
-		fmt.Println(data)
+		if err := json.Unmarshal(data, t); err != nil {
+			return err
+		}
+		*/
+
+		seconds, err := strconv.Atoi(dataStrs[1])
+
+		if err != nil {
+			return err
+		}
+
+		Timer.Seconds = seconds
 	}
+
+	return nil
 }
 
 func sendMessage(topic string, b []byte) {

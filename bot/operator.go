@@ -38,6 +38,7 @@ func init() {
 					}
 
 					sendMessage("bot_to_web", json)
+					Beat()
 					Counter = 0
 				}
 				Counter += 1
@@ -63,6 +64,11 @@ func NewOperator() *gobot.Robot {
 	robot := gobot.NewRobot("mqttBot", []gobot.Connection{mqttAdaptor}, owork, )
 
 	return robot
+}
+
+func sendMessage(topic string, b []byte) {
+	mqttAdaptor.Publish(topic, b)
+	fmt.Println("Sending Json")
 }
 
 func handleMessage(data []byte) error {
@@ -102,7 +108,3 @@ func handleMessage(data []byte) error {
 	return nil
 }
 
-func sendMessage(topic string, b []byte) {
-	mqttAdaptor.Publish(topic, b)
-	fmt.Println("Sending Json")
-}

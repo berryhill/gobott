@@ -23,13 +23,13 @@ func NewBot() {
 	bot := new(Bot)
 	Gbot = gobot.NewGobot()
 
-	r, buttons, leds := bot.initMicrocontroller()
+	r, _, leds := bot.initMicrocontroller()
 	fmt.Println(leds)
 
 	Operator = NewOperator()
 
 	Gbot.AddRobot(Operator)
-	Gbot.AddRobot(NewPeripheralPanel(r, buttons))
+	Gbot.AddRobot(NewMachineBot(r))
 
 	Gbot.Start()
 }

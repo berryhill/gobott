@@ -29,7 +29,7 @@ func init() {
 	//sensor = models.NewAnalogSensor("PPM Sensor")
 	//MACHINE.AddSensor(&sensor)
 	//
-	//sensor = models.NewBooleanSensor("Button")	
+	//sensor = models.NewBooleanSensor("Button")
 	//MACHINE.AddSensor(&sensor)
 }
 
@@ -39,8 +39,7 @@ func NewMachineBot(r *raspi.RaspiAdaptor) *gobot.Robot {
 	robot := gobot.NewRobot("Peripheral Bot", []gobot.Connection{r},
 		[]gobot.Device {
 			HeartBeatt,
-		},
-		mwork,
+		}, mwork,
 	)
 
 	return robot

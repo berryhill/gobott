@@ -20,7 +20,7 @@ var Timer *models.Timer
 var Counter int
 
 func init() {
-	On = true
+	On = false
 	Timer = new(models.Timer)
 	Timer.Seconds = 5
 	Counter = 1
@@ -37,10 +37,11 @@ func init() {
 						log.Fatal(err)
 					}
 
-					sendMessage("bot_to_web", json)
+					SendMessage("bot_to_web", json)
 					Beat()
 					Counter = 0
 				}
+
 				Counter += 1
 			}
 		})
@@ -66,7 +67,7 @@ func NewOperator() *gobot.Robot {
 	return robot
 }
 
-func sendMessage(topic string, b []byte) {
+func SendMessage(topic string, b []byte) {
 	mqttAdaptor.Publish(topic, b)
 	fmt.Println("Sending Json")
 }
@@ -79,12 +80,12 @@ func handleMessage(data []byte) error {
 
 	if dataStrs[0] == "start_bot" {
 		ResumeOutboundReport()
-
 		fmt.Println("Starting Bot")
+
 	} else if dataStrs[0] == "stop_bot" {
 		HaltOutboundReport()
-
 		fmt.Println("Stopping Bot")
+
 	} else if dataStrs[0] == "timer" {
 		fmt.Println("Timer" + string(Counter))
 

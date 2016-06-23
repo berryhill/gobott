@@ -2,32 +2,46 @@ package bot
 
 import (
 	"github.com/hybridgroup/gobot"
-
 	"github.com/hybridgroup/gobot/platforms/raspi"
+
+	"github.com/gobott/store"
+	"fmt"
 )
 
+var Adaptor *raspi.RaspiAdaptor
 var HeartBeat *gobot.Gobot
 var Gbot *gobot.Gobot
 var Operator *gobot.Robot
 var Machine *gobot.Robot
 var BotHandler *gobot.Robot
+//var Gateway *Gateway
 
-func NewBot() {
-	gateway := NewGateway()
+type Bot struct {
+	Gateway 		*Gateway
+}
+
+func NewBot() *Bot {
+	store.InitDb()
+	Adaptor = raspi.NewRaspiAdaptor("raspi")
+
+	bot := new(Bot)
+	gateway := new(Gateway)
+
+	if bot.Gateway, _ = gateway.Retrieve(); bot.Gateway == nil {
+		bot.Gateway = NewGateway()
+	}
+
+	fmt.Println("Machine ID: " + bot.Gateway.Id.String())
+
 	Gbot = gobot.NewGobot()
 
-	r  := gateway.raspiAdaptor
-
 	Operator = NewOperator()
-	Machine = NewMachineBot(r)
+	Machine = NewMachineBot(Adaptor)
 
 	Gbot.AddRobot(Operator)
 	Gbot.AddRobot(Machine)
 
 	Gbot.Start()
-}
 
-func initSensors (r *raspi.RaspiAdaptor) {
-	//return models.NewThermometer(r)
-	//TODO implement
+	return bot
 }

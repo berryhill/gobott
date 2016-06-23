@@ -10,6 +10,23 @@ import (
 	//"github.com/gobott-web/models"
 )
 
+func InitDb() error {
+	db, err := openDb()
+	defer db.Close()
+
+	err = db.Update(func(tx *bolt.Tx) error {
+		_, err := tx.CreateBucketIfNotExists([]byte("machine"))
+
+		return err
+	})
+
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	return err
+}
+
 func openDb() (*bolt.DB, error) {
 	db, err := bolt.Open("my.db", 0600, nil)
 
@@ -27,7 +44,7 @@ func itob(v int) []byte {
 	return b
 }
 
-func AddToDb(bucket []byte, value []byte) error {
+func AddToDb(bucket []byte, key []byte, value []byte) error {
 	db, err := openDb()
 	defer db.Close()
 
@@ -37,9 +54,6 @@ func AddToDb(bucket []byte, value []byte) error {
 		if err != nil {
 			return err
 		}
-
-		id, _ := bucket.NextSequence()
-		key := itob(int(id))
 
 		err = bucket.Put(key, value)
 
@@ -61,12 +75,14 @@ func AddToDb(bucket []byte, value []byte) error {
 	return err
 }
 
-func RetrieveFromDb(bucket []byte, key []byte) error {
+func RetrieveFromDb(bucket []byte, key []byte) ([]byte, error) {
 	db, err := openDb()
+	var val []byte
 	defer db.Close()
 
 	err = db.View(func(tx *bolt.Tx) error {
 		bucket := tx.Bucket(bucket)
+
 		if bucket == nil {
 			return fmt.Errorf("Bucket %q not found!", key)
 		}
@@ -85,7 +101,7 @@ func RetrieveFromDb(bucket []byte, key []byte) error {
 		log.Fatal(err)
 	}
 
-	return err
+	return val, err
 }
 
 func RetrieveAllFromDb(model interface{}, bucket []byte) /*(map[string][]byte, error)*/ error {

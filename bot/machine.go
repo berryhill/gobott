@@ -33,10 +33,10 @@ func init() {
 	//MACHINE.AddSensor(&sensor)
 }
 
-func NewMachineBot(r *beaglebone.BeagleboneAdaptor) *gobot.Robot {
- 	HeartBeatt = gpio.NewLedDriver(r, "led", "6")
+func NewMachineBot(b *beaglebone.BeagleboneAdaptor) *gobot.Robot {
+ 	HeartBeatt = gpio.NewLedDriver(b, "led", "P9_12")
 
-	robot := gobot.NewRobot("Peripheral Bot", []gobot.Connection{r},
+	robot := gobot.NewRobot("Peripheral Bot", []gobot.Connection{b},
 		[]gobot.Device {
 			HeartBeatt,
 		}, mwork,
@@ -46,7 +46,7 @@ func NewMachineBot(r *beaglebone.BeagleboneAdaptor) *gobot.Robot {
 }
 
 func Beat() {
-	HeartBeatt.On()
+	HeartBeatt.Toggle()
 	time.Sleep(250 * time.Millisecond)
-	HeartBeatt.Off()
+	HeartBeatt.Toggle()
 }

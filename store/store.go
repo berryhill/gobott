@@ -10,23 +10,6 @@ import (
 	//"github.com/gobott-web/models"
 )
 
-func InitDb() error {
-	db, err := openDb()
-	defer db.Close()
-
-	err = db.Update(func(tx *bolt.Tx) error {
-		_, err := tx.CreateBucketIfNotExists([]byte("machine"))
-
-		return err
-	})
-
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	return err
-}
-
 func openDb() (*bolt.DB, error) {
 	db, err := bolt.Open("my.db", 0600, nil)
 
@@ -42,6 +25,23 @@ func itob(v int) []byte {
 	binary.BigEndian.PutUint64(b, uint64(v))
 
 	return b
+}
+
+func InitDb() error {
+	db, err := openDb()
+	defer db.Close()
+
+	err = db.Update(func(tx *bolt.Tx) error {
+		_, err := tx.CreateBucketIfNotExists([]byte("machine"))
+
+		return err
+	})
+
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	return err
 }
 
 func AddToDb(bucket []byte, key []byte, value []byte) error {

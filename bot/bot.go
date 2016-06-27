@@ -2,13 +2,13 @@ package bot
 
 import (
 	"github.com/hybridgroup/gobot"
-	"github.com/hybridgroup/gobot/platforms/raspi"
 
 	"github.com/gobott/store"
 	"fmt"
+	"github.com/hybridgroup/gobot/platforms/beaglebone"
 )
 
-var Adaptor *raspi.RaspiAdaptor
+var Adaptor *beaglebone.BeagleboneAdaptor
 var HeartBeat *gobot.Gobot
 var Gbot *gobot.Gobot
 var Operator *gobot.Robot
@@ -22,7 +22,7 @@ type Bot struct {
 
 func NewBot() *Bot {
 	store.InitDb()
-	Adaptor = raspi.NewRaspiAdaptor("raspi")
+	Adaptor = beaglebone.NewBeagleboneAdaptor("beaglebone")
 
 	bot := new(Bot)
 	gateway := new(Gateway)

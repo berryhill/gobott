@@ -5,9 +5,9 @@ import	(
 
 	"github.com/gobott-web/models"
 
-	"github.com/hybridgroup/gobot/platforms/raspi"
 	"github.com/hybridgroup/gobot"
 	"github.com/hybridgroup/gobot/platforms/gpio"
+	"github.com/hybridgroup/gobot/platforms/beaglebone"
 )
 
 var MACHINE *models.Machine
@@ -33,7 +33,7 @@ func init() {
 	//MACHINE.AddSensor(&sensor)
 }
 
-func NewMachineBot(r *raspi.RaspiAdaptor) *gobot.Robot {
+func NewMachineBot(r *beaglebone.BeagleboneAdaptor) *gobot.Robot {
  	HeartBeatt = gpio.NewLedDriver(r, "led", "6")
 
 	robot := gobot.NewRobot("Peripheral Bot", []gobot.Connection{r},

@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="83c64ff5-8c2c-4661-b5a6-fb7a642a3f95" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bot/gateway.go" afterPath="$PROJECT_DIR$/bot/gateway.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/store/store.go" afterPath="$PROJECT_DIR$/store/store.go" />
     </list>
     <ignored path="gobott.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,8 +71,8 @@
       <file leaf-file-name="gateway.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot/gateway.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state relative-caret-position="406">
+              <caret line="42" column="14" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
               <folding>
                 <element signature="e#13#99#0" expanded="true" />
               </folding>
@@ -1141,12 +1140,12 @@
       <workItem from="1466718368050" duration="6543000" />
       <workItem from="1466741056982" duration="2172000" />
       <workItem from="1466795164039" duration="596000" />
-      <workItem from="1467067547677" duration="8136000" />
+      <workItem from="1467067547677" duration="8220000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119710000" />
+    <option name="totallyTimeSpent" value="119794000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="422" y="23" width="1081" height="773" extended-state="0" />
@@ -1493,8 +1492,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bot/gateway.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        <state relative-caret-position="406">
+          <caret line="42" column="14" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
           <folding>
             <element signature="e#13#99#0" expanded="true" />
           </folding>

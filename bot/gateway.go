@@ -26,6 +26,7 @@ func (g *Gateway) Retrieve() (*Gateway, error) {
 	err = json.Unmarshal(gatewayJson, gateway)
 
 	fmt.Println("Gateway Retrieved")
+	fmt.Println(gateway)
 
 	return gateway, err
 }
@@ -37,6 +38,7 @@ func (g *Gateway) Save() error {
 	}
 
 	store.AddToDb([]byte("machine"), []byte("machine"), gatewayJson)
+	println(gatewayJson)
 
 	return err
 }

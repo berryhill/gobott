@@ -31,19 +31,9 @@ func init() {
 			)
 			fmt.Println("sensor", data)
 			fmt.Println("brightness", brightness)
+			time.Sleep(1 * time.Millisecond)
 		})
 	}
-
-	//var sensor models.Sensor
-	//
-	//sensor = models.NewAnalogSensor("PH Sensor")
-	//MACHINE.AddSensor(&sensor)
-	//
-	//sensor = models.NewAnalogSensor("PPM Sensor")
-	//MACHINE.AddSensor(&sensor)
-	//
-	//sensor = models.NewBooleanSensor("Button")
-	//MACHINE.AddSensor(&sensor)
 }
 
 func NewMachineBot(b *beaglebone.BeagleboneAdaptor) *gobot.Robot {

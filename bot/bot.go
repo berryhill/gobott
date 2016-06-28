@@ -31,7 +31,7 @@ func NewBot() *Bot {
 		bot.Gateway = NewGateway()
 	}
 
-	if bot.Gateway.Id == nil {
+	if bot.Gateway.Id == "" {
 		bot.Gateway.Id = bson.NewObjectId()
 	}
 

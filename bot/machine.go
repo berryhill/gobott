@@ -12,6 +12,7 @@ import	(
 
 var MACHINE *models.Machine
 var HeartBeatt *gpio.LedDriver
+var ReportIndicator *gpio.LedDriver
 var mwork func()
 
 func init() {
@@ -37,10 +38,12 @@ func init() {
 
 func NewMachineBot(b *beaglebone.BeagleboneAdaptor) *gobot.Robot {
  	HeartBeatt = gpio.NewLedDriver(b, "led", "P9_12")
+	ReportIndicator = gpio.NewLedDriver(b, "led", "P9_14")
 
 	robot := gobot.NewRobot("Peripheral Bot", []gobot.Connection{b},
 		[]gobot.Device {
 			HeartBeatt,
+			ReportIndicator,
 		}, mwork,
 	)
 
@@ -48,9 +51,9 @@ func NewMachineBot(b *beaglebone.BeagleboneAdaptor) *gobot.Robot {
 }
 
 func ReportSent() {
-	HeartBeatt.Toggle()
+	ReportIndicator.Toggle()
 	time.Sleep(1 * time.Second)
-	HeartBeatt.Toggle()
+	ReportIndicator.Toggle()
 }
 
 func Beat() {

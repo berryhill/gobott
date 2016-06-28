@@ -48,7 +48,8 @@ func NewMachineBot(b *beaglebone.BeagleboneAdaptor) *gobot.Robot {
 }
 
 func Beat() {
-	HeartBeatt.Toggle()
-	time.Sleep(250 * time.Millisecond)
-	HeartBeatt.Toggle()
+	for k := 0; k < 4; k++ {
+		HeartBeatt.Toggle()
+		time.Sleep(100 * time.Millisecond)
+	}
 }

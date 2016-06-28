@@ -45,8 +45,8 @@ func (g *Gateway) Update() error {
 		return err
 	}
 
-	fmt.Println("Updating Gateway" + gatewayJson)
-
+	fmt.Println("Updating Gateway")
+	store.UpdateDb([]byte("machine"), []byte("machine"), gatewayJson)
 
 	return err
 }

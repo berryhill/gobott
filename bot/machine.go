@@ -15,7 +15,7 @@ var MACHINE *models.Machine
 var HeartBeatt *gpio.LedDriver
 var ReportIndicator *gpio.LedDriver
 var LightSensor *gpio.AnalogSensorDriver
-var LsValue uint8
+var LsValue interface{}
 var mwork func()
 
 func init() {

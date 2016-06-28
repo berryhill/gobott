@@ -15,7 +15,7 @@ var MACHINE *models.Machine
 var HeartBeatt *gpio.LedDriver
 var ReportIndicator *gpio.LedDriver
 var LightSensor *gpio.AnalogSensorDriver
-var LsValue interface{}
+var LsValue uint8
 var mwork func()
 
 func init() {
@@ -28,11 +28,11 @@ func init() {
 		})
 
 		gobot.On(LightSensor.Event("data"), func(data interface{}) {
-			LsValue = data
-			//LsValue = uint8(
-			//	gobot.ToScale(gobot.FromScale(float64(data.(int)), 0, 1024), 0, 255),
-			//)
-			//fmt.Println("sensor", data)
+			//LsValue = data
+			LsValue = uint8(
+				gobot.ToScale(gobot.FromScale(float64(data.(int)), 0, 1024), 0, 255),
+			)
+			fmt.Println("sensor", data)
 		})
 	}
 }

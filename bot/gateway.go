@@ -38,7 +38,7 @@ func (g *Gateway) Save() error {
 	}
 
 	store.AddToDb([]byte("machine"), []byte("machine"), gatewayJson)
-	println(gatewayJson)
+	fmt.Println(gatewayJson)
 
 	return err
 }
@@ -51,6 +51,7 @@ func (g *Gateway) Update() error {
 
 	fmt.Println("Updating Gateway")
 	store.UpdateDb([]byte("machine"), []byte("machine"), gatewayJson)
+	fmt.Println(gatewayJson)
 
 	return err
 }

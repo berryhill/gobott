@@ -137,7 +137,7 @@ func UpdateDb(bucket []byte, key []byte, data []byte) error {
 
 	db.Update(func(tx *bolt.Tx) error {
 		b := tx.Bucket(bucket)
-		err = b.Put(data, key)
+		err = b.Put(key, data)
 		return err
 	})
 

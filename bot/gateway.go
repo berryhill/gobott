@@ -25,6 +25,8 @@ func (g *Gateway) Retrieve() (*Gateway, error) {
 	gateway := new(Gateway)
 	err = json.Unmarshal(gatewayJson, gateway)
 
+	fmt.Println("Gateway Retrieved")
+
 	return gateway, err
 }
 

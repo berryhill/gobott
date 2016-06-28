@@ -34,6 +34,7 @@ func NewBot() *Bot {
 
 	if bot.Gateway.Id == "" {
 		bot.Gateway.Id = bson.NewObjectId()
+		bot.Gateway.Update()
 	}
 
 	fmt.Println("Machine ID: " + bot.Gateway.Id.String())

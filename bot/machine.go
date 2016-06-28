@@ -31,7 +31,7 @@ func init() {
 			)
 			fmt.Println("sensor", data)
 			fmt.Println("brightness", brightness)
-			time.Sleep(1 * time.Millisecond)
+			time.Sleep(1 * time.Second)
 		})
 	}
 }

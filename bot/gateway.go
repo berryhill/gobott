@@ -3,7 +3,7 @@ package bot
 import (
 	"github.com/gobott/store"
 
-	"github.com/siddontang/go/bson"
+	"gopkg.in/mgo.v2/bson"
 	"encoding/json"
 )
 

@@ -1,6 +1,6 @@
 package bot
 
-import(
+import (
 	"fmt"
 	"time"
 	"log"
@@ -37,7 +37,7 @@ func init() {
 					}
 
 					SendMessage("bot_to_web", json)
-					Beat()
+					ReportSent()
 					Counter = 0
 				}
 
@@ -87,7 +87,6 @@ func handleMessage(data []byte) error {
 
 	} else if dataStrs[0] == "timer" {
 		fmt.Println("Timer" + string(Counter))
-
 		/*
 		t := new(models.Timer)
 
@@ -95,7 +94,6 @@ func handleMessage(data []byte) error {
 			return err
 		}
 		*/
-
 		seconds, err := strconv.Atoi(dataStrs[1])
 		if err != nil {
 			return err

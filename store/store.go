@@ -6,13 +6,10 @@ import (
 	"encoding/binary"
 
 	"github.com/boltdb/bolt"
-
-	//"github.com/gobott-web/models"
 )
 
 func openDb() (*bolt.DB, error) {
 	db, err := bolt.Open("my.db", 0600, nil)
-
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -64,7 +61,6 @@ func AddToDb(bucket []byte, key []byte, value []byte) error {
 	if err != nil {
 		log.Fatal(err)
 	}
-
 	if err = db.Close(); err != nil {
 		log.Fatal(err)
 	}
@@ -79,7 +75,6 @@ func RetrieveFromDb(bucket []byte, key []byte) ([]byte, error) {
 
 	err = db.View(func(tx *bolt.Tx) error {
 		bucket := tx.Bucket(bucket)
-
 		if bucket == nil {
 			return fmt.Errorf("Bucket %q not found!", key)
 		}
@@ -93,7 +88,6 @@ func RetrieveFromDb(bucket []byte, key []byte) ([]byte, error) {
 	if err != nil {
 		log.Fatal(err)
 	}
-
 	if err = db.Close(); err != nil {
 		log.Fatal(err)
 	}
@@ -123,7 +117,6 @@ func RetrieveAllFromDb(model interface{}, bucket []byte) /*(map[string][]byte, e
 	if err != nil {
 		log.Fatal(err)
 	}
-
 	if err = db.Close(); err != nil {
 		log.Fatal(err)
 	}
@@ -144,7 +137,6 @@ func UpdateDb(bucket []byte, key []byte, data []byte) error {
 	if err != nil {
 		log.Fatal(err)
 	}
-
 	if err = db.Close(); err != nil {
 		log.Fatal(err)
 	}

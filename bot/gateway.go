@@ -37,6 +37,7 @@ func (g *Gateway) Save() error {
 		return err
 	}
 
+	fmt.Println("Saving Gateway")
 	store.AddToDb([]byte("machine"), []byte("machine"), gatewayJson)
 	fmt.Println(gatewayJson)
 

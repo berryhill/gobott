@@ -18,7 +18,9 @@ func init() {
 	MACHINE = models.NewMachine("Test Machine")
 
 	mwork = func() {
-
+		gobot.Every(1 * time.Second, func() {
+			Beat()
+		})
 	}
 
 	//var sensor models.Sensor
@@ -43,6 +45,12 @@ func NewMachineBot(b *beaglebone.BeagleboneAdaptor) *gobot.Robot {
 	)
 
 	return robot
+}
+
+func ReportSent() {
+	HeartBeatt.Toggle()
+	time.Sleep(500 * time.Millisecond)
+	HeartBeatt.Toggle()
 }
 
 func Beat() {

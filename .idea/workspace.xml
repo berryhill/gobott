@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83c64ff5-8c2c-4661-b5a6-fb7a642a3f95" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bot/gateway.go" afterPath="$PROJECT_DIR$/bot/gateway.go" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bot/machine.go" afterPath="$PROJECT_DIR$/bot/machine.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bot/operator.go" afterPath="$PROJECT_DIR$/bot/operator.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/store/store.go" afterPath="$PROJECT_DIR$/store/store.go" />
     </list>
     <ignored path="gobott.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -88,8 +85,8 @@
       <file leaf-file-name="machine.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot/machine.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="61">
-              <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+            <state relative-caret-position="421">
+              <caret line="49" column="19" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
               <folding>
                 <element signature="e#13#197#0" expanded="true" />
               </folding>
@@ -1145,12 +1142,12 @@
       <workItem from="1466718368050" duration="6543000" />
       <workItem from="1466741056982" duration="2172000" />
       <workItem from="1466795164039" duration="596000" />
-      <workItem from="1467067547677" duration="9490000" />
+      <workItem from="1467067547677" duration="9574000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121064000" />
+    <option name="totallyTimeSpent" value="121148000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="422" y="23" width="1081" height="773" extended-state="0" />
@@ -1499,8 +1496,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bot/machine.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        <state relative-caret-position="421">
+          <caret line="49" column="19" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
           <folding>
             <element signature="e#13#197#0" expanded="true" />
           </folding>

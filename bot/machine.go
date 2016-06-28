@@ -49,7 +49,7 @@ func NewMachineBot(b *beaglebone.BeagleboneAdaptor) *gobot.Robot {
 
 func ReportSent() {
 	HeartBeatt.Toggle()
-	time.Sleep(500 * time.Millisecond)
+	time.Sleep(1 * time.Second)
 	HeartBeatt.Toggle()
 }
 

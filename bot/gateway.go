@@ -5,6 +5,7 @@ import (
 
 	"gopkg.in/mgo.v2/bson"
 	"encoding/json"
+	"fmt"
 )
 
 type Gateway struct {
@@ -34,6 +35,18 @@ func (g *Gateway) Save() error {
 	}
 
 	store.AddToDb([]byte("machine"), []byte("machine"), gatewayJson)
+
+	return err
+}
+
+func (g *Gateway) Update() error {
+	gatewayJson, err := json.Marshal(g)
+	if err !=  nil {
+		return err
+	}
+
+	fmt.Println("Updating Gateway" + gatewayJson)
+
 
 	return err
 }

@@ -131,6 +131,26 @@ func RetrieveAllFromDb(model interface{}, bucket []byte) /*(map[string][]byte, e
 	return nil
 }
 
+func UpdateDb(bucket []byte, key []byte, data []byte) error {
+	db, err := openDb()
+	defer db.Close()
+
+	db.Update(func(tx *bolt.Tx) error {
+		b := tx.Bucket(bucket))
+		err = b.Put(key, data)
+	})
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if err = db.Close(); err != nil {
+		log.Fatal(err)
+	}
+
+	return nil
+}
+
 func DeleteBucket(bucket []byte) error {
 	//TODO implement
 	return nil

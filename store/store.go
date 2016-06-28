@@ -36,7 +36,6 @@ func InitDb() error {
 
 		return err
 	})
-
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -50,13 +49,11 @@ func AddToDb(bucket []byte, key []byte, value []byte) error {
 
 	err = db.Update(func(tx *bolt.Tx) error {
 		bucket, err := tx.CreateBucketIfNotExists(bucket)
-
 		if err != nil {
 			return err
 		}
 
 		err = bucket.Put(key, value)
-
 		if err != nil {
 			return err
 		}

@@ -32,7 +32,6 @@ func init() {
 					testReport := models.NewReport(MACHINE)
 
 					json, err := testReport.MarshalJson()
-
 					if err != nil {
 						log.Fatal(err)
 					}
@@ -69,7 +68,7 @@ func NewOperator() *gobot.Robot {
 
 func SendMessage(topic string, b []byte) {
 	mqttAdaptor.Publish(topic, b)
-	fmt.Println("Sending Json")
+	//fmt.Println("Sending Json")
 }
 
 func handleMessage(data []byte) error {
@@ -98,7 +97,6 @@ func handleMessage(data []byte) error {
 		*/
 
 		seconds, err := strconv.Atoi(dataStrs[1])
-
 		if err != nil {
 			return err
 		}

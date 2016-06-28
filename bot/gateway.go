@@ -29,7 +29,6 @@ func (g *Gateway) Retrieve() (*Gateway, error) {
 
 func (g *Gateway) Save() error {
 	gatewayJson, err := json.Marshal(g)
-
 	if err != nil {
 		return err
 	}

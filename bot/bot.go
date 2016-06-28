@@ -6,6 +6,7 @@ import (
 	"github.com/gobott/store"
 	"fmt"
 	"github.com/hybridgroup/gobot/platforms/beaglebone"
+	"gopkg.in/mgo.v2/bson"
 )
 
 var Adaptor *beaglebone.BeagleboneAdaptor
@@ -14,7 +15,7 @@ var Gbot *gobot.Gobot
 var Operator *gobot.Robot
 var Machine *gobot.Robot
 var BotHandler *gobot.Robot
-//var Gateway *Gateway
+//var Gateway *Gatewayq
 
 type Bot struct {
 	Gateway 		*Gateway
@@ -26,9 +27,12 @@ func NewBot() *Bot {
 
 	bot := new(Bot)
 	gateway := new(Gateway)
-
 	if bot.Gateway, _ = gateway.Retrieve(); bot.Gateway == nil {
 		bot.Gateway = NewGateway()
+	}
+
+	if bot.Gateway.Id == nil {
+		bot.Gateway.Id = bson.NewObjectId()
 	}
 
 	fmt.Println("Machine ID: " + bot.Gateway.Id.String())

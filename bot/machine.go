@@ -28,9 +28,10 @@ func init() {
 		})
 
 		gobot.On(LightSensor.Event("data"), func(data interface{}) {
-			LsValue = uint8(
-				gobot.ToScale(gobot.FromScale(float64(data.(int)), 0, 1024), 0, 255),
-			)
+			LsValue = data
+			//LsValue = uint8(
+			//	gobot.ToScale(gobot.FromScale(float64(data.(int)), 0, 1024), 0, 255),
+			//)
 			//fmt.Println("sensor", data)
 		})
 	}

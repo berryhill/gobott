@@ -28,6 +28,7 @@ func NewBot() *Bot {
 	bot := new(Bot)
 	gateway := new(Gateway)
 	if bot.Gateway, _ = gateway.Retrieve(); bot.Gateway == nil {
+		fmt.Println("New Gateway Created")
 		bot.Gateway = NewGateway()
 	}
 

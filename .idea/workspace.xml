@@ -46,24 +46,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bot.go" pinned="false" current-in-tab="false">
+      <file leaf-file-name="bot.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot/bot.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="34" column="35" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
+            <state relative-caret-position="586">
+              <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
               <folding>
                 <element signature="e#13#167#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bson.go" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../../gopkg.in/mgo.v2/bson/bson.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="166" column="5" selection-start-line="166" selection-start-column="5" selection-end-line="166" selection-end-column="5" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -1112,12 +1102,12 @@
       <workItem from="1466718368050" duration="6543000" />
       <workItem from="1466741056982" duration="2172000" />
       <workItem from="1466795164039" duration="596000" />
-      <workItem from="1467067547677" duration="6509000" />
+      <workItem from="1467067547677" duration="6648000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118083000" />
+    <option name="totallyTimeSpent" value="118222000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="196" y="23" width="1081" height="773" extended-state="0" />
@@ -1482,21 +1472,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bot/bot.go">
+    <entry file="file://$PROJECT_DIR$/../../gopkg.in/mgo.v2/bson/bson.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="35" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
-          <folding>
-            <element signature="e#13#167#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="390">
+          <caret line="164" column="2" selection-start-line="164" selection-start-column="2" selection-end-line="164" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../gopkg.in/mgo.v2/bson/bson.go">
+    <entry file="file://$PROJECT_DIR$/bot/bot.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="166" column="5" selection-start-line="166" selection-start-column="5" selection-end-line="166" selection-end-column="5" />
-          <folding />
+        <state relative-caret-position="586">
+          <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
+          <folding>
+            <element signature="e#13#167#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -24,7 +24,7 @@ func init() {
 	mwork = func() {
 		gobot.Every(1 * time.Second, func() {
 			Beat()
-			fmt.Println(LsValue)
+			fmt.Println("Sensor: ", LsValue)
 		})
 
 		gobot.On(LightSensor.Event("data"), func(data interface{}) {

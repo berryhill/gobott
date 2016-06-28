@@ -52,7 +52,7 @@ func NewMachineBot(b *beaglebone.BeagleboneAdaptor) *gobot.Robot {
 
 func ReportSent() {
 	ReportIndicator.Toggle()
-	time.Sleep(1 * time.Second)
+	time.Sleep(500 * time.Millisecond)
 	ReportIndicator.Toggle()
 }
 

@@ -29,9 +29,10 @@ func init() {
 		gobot.Every(1 * time.Second, func() {
 			if On == true {
 				if Counter >= Timer.Seconds {
-					testReport := models.NewReport(MACHINE)
+					report := models.NewReport(MACHINE)
+					report.Name = "Green1"
 
-					json, err := testReport.MarshalJson()
+					json, err := report.MarshalJson()
 					if err != nil {
 						log.Fatal(err)
 					}

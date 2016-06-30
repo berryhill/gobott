@@ -30,7 +30,11 @@ func init() {
 	mwork = func() {
 		gobot.Every(1 * time.Second, func() {
 			Beat()
+
+			MACHINE.Sensors[0].Value = LightSensorValue
 			fmt.Println("LightSensor Value: ", LightSensorValue)
+
+			MACHINE.Sensors[0].Value = ThermistorValue
 			fmt.Println("Thermistor Value: ", ThermistorValue)
 		})
 

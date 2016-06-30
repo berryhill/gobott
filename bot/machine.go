@@ -24,6 +24,9 @@ var mwork func()
 func init() {
 	MACHINE = models.NewMachine("Test Machine")
 
+	MACHINE.AddSensor(models.NewAnalogSensor("LightSensor"))
+	MACHINE.AddSensor(models.NewAnalogSensor("Thermistor"))
+
 	mwork = func() {
 		gobot.Every(1 * time.Second, func() {
 			Beat()
@@ -40,10 +43,6 @@ func init() {
 		})
 		gobot.On(Thermistor.Event("data"), func(data interface{}) {
 			ThermistorValue = data
-			//LsValue = uint8(
-			//	gobot.ToScale(gobot.FromScale(float64(data.(int)), 0, 1024), 0, 255),
-			//)
-			//fmt.Println("sensor", data)
 		})
 	}
 }

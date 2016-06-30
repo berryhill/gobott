@@ -16,6 +16,7 @@ var HeartBeatt *gpio.LedDriver
 var ReportIndicator *gpio.LedDriver
 var LightSensor *gpio.AnalogSensorDriver
 var Thermistor *gpio.AnalogSensorDriver
+
 var LightSensorValue interface{}
 var ThermistorValue interface{}
 var mwork func()

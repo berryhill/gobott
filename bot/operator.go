@@ -20,7 +20,7 @@ var Timer *models.Timer
 var Counter int
 
 func init() {
-	On = false
+	On = true
 	Timer = new(models.Timer)
 	Timer.Seconds = 5
 	Counter = 1

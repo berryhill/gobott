@@ -69,7 +69,7 @@ func NewOperator() *gobot.Robot {
 
 func SendMessage(topic string, b []byte) {
 	mqttAdaptor.Publish(topic, b)
-	fmt.Println(b)
+	fmt.Println(string(b))
 }
 
 func handleMessage(data []byte) error {

@@ -31,10 +31,10 @@ func init() {
 		gobot.Every(1 * time.Second, func() {
 			Beat()
 
-			MACHINE.Sensors[0].Value = int32(LightSensorValue)
+			MACHINE.Sensors[0].Value = LightSensorValue.(int32)
 			fmt.Println("LightSensor Value: ", LightSensorValue)
 
-			MACHINE.Sensors[0].Value = int32(ThermistorValue)
+			MACHINE.Sensors[0].Value = ThermistorValue.(int32)
 			fmt.Println("Thermistor Value: ", ThermistorValue)
 		})
 

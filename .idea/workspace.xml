@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="83c64ff5-8c2c-4661-b5a6-fb7a642a3f95" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bot/operator.go" afterPath="$PROJECT_DIR$/bot/operator.go" />
-    </list>
+    <list default="true" id="83c64ff5-8c2c-4661-b5a6-fb7a642a3f95" name="Default" comment="" />
     <ignored path="gobott.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -27,7 +25,7 @@
       <file leaf-file-name="operator.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot/operator.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
+            <state relative-caret-position="735">
               <caret line="71" column="25" selection-start-line="71" selection-start-column="25" selection-end-line="71" selection-end-column="25" />
               <folding>
                 <element signature="e#13#180#0" expanded="true" />
@@ -98,8 +96,8 @@
             <state relative-caret-position="225">
               <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
               <folding>
-                <marker date="1467334571000" expanded="true" signature="737:1072" ph="{...}" />
-                <marker date="1467334571000" expanded="true" signature="1126:1472" ph="{...}" />
+                <marker date="1467337424000" expanded="true" signature="784:1194" ph="{...}" />
+                <marker date="1467337424000" expanded="true" signature="1248:1725" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -1156,12 +1154,12 @@
       <workItem from="1467067547677" duration="18635000" />
       <workItem from="1467147270964" duration="6043000" />
       <workItem from="1467210510198" duration="50000" />
-      <workItem from="1467324085805" duration="6492000" />
+      <workItem from="1467324085805" duration="7151000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="142794000" />
+    <option name="totallyTimeSpent" value="143453000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1093" height="773" extended-state="0" />
@@ -1462,8 +1460,8 @@
         <state relative-caret-position="225">
           <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
           <folding>
-            <marker date="1467334571000" expanded="true" signature="737:1072" ph="{...}" />
-            <marker date="1467334571000" expanded="true" signature="1126:1472" ph="{...}" />
+            <marker date="1467337424000" expanded="true" signature="784:1194" ph="{...}" />
+            <marker date="1467337424000" expanded="true" signature="1248:1725" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1516,7 +1514,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bot/operator.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
+        <state relative-caret-position="735">
           <caret line="71" column="25" selection-start-line="71" selection-start-column="25" selection-end-line="71" selection-end-column="25" />
           <folding>
             <element signature="e#13#180#0" expanded="true" />

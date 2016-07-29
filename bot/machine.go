@@ -34,7 +34,7 @@ func init() {
 			MACHINE.Sensors[0].Value = int32(LightSensorValue.(int))
 			fmt.Println("LightSensor Value: ", LightSensorValue)
 
-			MACHINE.Sensors[0].Value = int32(ThermistorValue.(int))
+			MACHINE.Sensors[1].Value = int32(ThermistorValue.(int))
 			fmt.Println("Thermistor Value: ", ThermistorValue)
 		})
 
